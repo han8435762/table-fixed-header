@@ -33,7 +33,7 @@ $.fn.fixedHeader = function (options) {
     // NG: dislocate while iframe page resized. fixed by jeffen@pactera 2015/7/8
 	headerCopyRectify();
   }
-  
+
   // set a broken bone when header copy dislocated
   function headerCopyRectify() {
     o.find('thead.header > tr > th').each(function (i, h) {
@@ -41,7 +41,7 @@ $.fn.fixedHeader = function (options) {
       o.find('thead.header-copy> tr > th:eq('+i+')').width(w)
     });
   }
-  
+
   $win.on('scroll', processScroll);
   // NG: dislocate while body resized. fixed by jeffen@pactera 2015/7/9
   $win.on('resize', processScroll);
@@ -59,9 +59,13 @@ $.fn.fixedHeader = function (options) {
               width: o.width(),
              'background-color':config.bgColor });
   processScroll();
-  
+
 
  });
+};
+
+$.fn.removeFixedHeader = function () {
+  $('thead.header-copy').remove();
 };
 
 })(jQuery);
